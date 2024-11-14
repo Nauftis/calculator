@@ -69,6 +69,8 @@ function addOperatorToCalculation(op) {
 const calculation = document.getElementById("equals");
 calculation.addEventListener("click", () => {
     num1 = calculate(operator, num1, num2);
+    operator = null
+    num2 = ""
     showOnDisplay();
 });
 

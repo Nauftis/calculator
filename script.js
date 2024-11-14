@@ -14,11 +14,12 @@ function divide(a, b) {
     return a / b;
 }
 
-let num1 = ""
-let operator = ""
-let num2 = ""
+let num1 = "" // answer
+let operator = null // reset
+let num2 = "" // reset
 
-function operate(opp, a, b) {
+function calculate(opp, a, b) {
+    
     switch (opp) {
         case '+':
             return add(a, b);
@@ -35,29 +36,41 @@ function operate(opp, a, b) {
 const display = document.getElementById("display")
 
 for (let i = 0; i < 10; i++) {
-   const inputNumber = document.getElementById("numPad" + i);
+    const inputNumber = document.getElementById("numPad" + i);
     inputNumber.addEventListener("click", () => {
         addNumberToCalculation(i);
-        
+
     });
 }
 
 function addNumberToCalculation(number) {
-    num1 += number.toString();
+    if (operator == null) {
+        num1 += number;
+    } else {
+        num2 += number;
+    }
     showOnDisplay();
 }
 
-for (let i = 0; i < 4; i++) {
-    const inputOperator = document.getElementById("operator" + i);
-     inputOperator.addEventListener("click", () => {
-         addOperatorToCalculation(i);
-         
-     });
- }
+const operators = ["/", "*", "+", "-"]
+for (const operator of operators) {
+    const inputOperator = document.getElementById("operator" + operator);
+    inputOperator.addEventListener("click", () => {
+        addOperatorToCalculation(operator);
+
+    });
+}
 
 function addOperatorToCalculation(op) {
-    alert(`Operator is ${op}`)
+    operator = op;
+    showOnDisplay();
 }
+
+const calculation = document.getElementById("equals");
+calculation.addEventListener("click", () => {
+    num1 = calculate(operator, num1, num2);
+    showOnDisplay();
+});
 
 function showOnDisplay() {
     if (operator == null) {

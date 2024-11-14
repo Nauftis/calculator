@@ -1,40 +1,67 @@
 body {
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 #calculator {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 1px solid black;
     border-radius: 5px;
     padding: 10px;
-    width: 500px;
+    width: 365px;
+    background-color: #aaa
 }
 
 .display {
     display: flex;
-    justify-content: center;
-    width: 450px;
+    justify-content:flex-end;
+    align-items: flex-end;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    width: 330px;
+    height: 80px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
+    text-align: right;
+    font-size: 40px;
+    color: rgb(44, 44, 44);
+    background-color: #eee;
 }
 
-.numbers, .operators, .decimal {
-    width: 110px;
-    height: 110px;
-}
-
-
-.editors, .calculate {
-    width: 230px;
-    height: 110px;
-}
-
-
-.operators, .calculate {
+.allButtons {
     display: flex;
-    
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 420px;
+}
+.buttons {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    width: 80px;
+    height: 65px;
+    margin: 5px; 
+    font-size: 20px;
+    color: rgb(44, 44, 44);
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#equals {
+    background-color: #def7e2;
+}
+
+#clear {
+    background-color: #fad4d4;
+}
+
+#operatorDiv, #operatorAdd, #operatorSub, #operatorMult {
+    background-color: #dfcdf0;
+}
+
+#numPad0, #numPad1, #numPad2, #numPad3, #numPad4, #numPad5, #numPad6, #numPad7, #numPad8, #numPad9 {
+    background-color: #eee;
 }

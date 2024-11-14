@@ -68,7 +68,7 @@ function addOperatorToCalculation(op) {
 
 const calculation = document.getElementById("equals");
 calculation.addEventListener("click", () => {
-    num1 = calculate(operator, num1, num2);
+    num1 = calculate(operator, Number(num1), Number(num2));
     operator = null
     num2 = ""
     showOnDisplay();
@@ -81,3 +81,15 @@ function showOnDisplay() {
         display.textContent = `${num1} ${operator} ${num2}`;
     }
 };
+
+const clearAll = document.getElementById("clear");
+clearAll.addEventListener("click", () => {
+    clear();
+});
+
+function clear() {
+    num1 = ""
+    operator = null
+    num2 = ""
+    display.textContent = 0
+}
